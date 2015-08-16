@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: 'Reproducible Research: Peer Assessment 1'
+output:
+  html_document:
+    keep_md: yes
+---
 
 
 ## Loading and preprocessing the data
@@ -27,7 +32,7 @@ d<-summarise(data_by_date, steps=sum(steps))
 hist(d$steps, breaks = 10, xlab="Number of steps per day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 ### Mean and median
 
@@ -52,7 +57,7 @@ mean_by_interval<-summarise(data_by_interval, steps=mean(steps, na.rm=TRUE))
 plot(x=mean_by_interval$interval, y=mean_by_interval$steps, type="s", xlab="Time of day, 5min intervals", ylab="Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 The interval with the highest number of steps is ``835``
 
 ## Imputing missing values
@@ -73,7 +78,7 @@ d<-summarise(data_by_date, steps=sum(steps))
 hist(d$steps, breaks = 10, xlab="Number of steps per day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 ### Mean and median with missing data replaced
 The mean hasn't changed (since we replaced values with the existing mean anyway).  The mean and median were previously close and following the use of the mean as a replacement value, they are now the same.
@@ -112,4 +117,4 @@ plot(x=weekdays$interval, y=weekdays$steps, type="l", xlab="", ylab="Steps - Wee
 plot(x=weekends$interval, y=weekends$steps, type="l", xlab="Time of day, 5min intervals", ylab="Steps - Weekends")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
